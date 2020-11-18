@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#aaeae">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/nombre"
@@ -12,13 +11,13 @@
         android:textSize="32sp" />
 
     <TextView
-        android:id="@+id/tipos"
+        android:id="@+id/numpok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32sp" />
 
     <TextView
-        android:id="@+id/numpok"
+        android:id="@+id/tipos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32sp" />

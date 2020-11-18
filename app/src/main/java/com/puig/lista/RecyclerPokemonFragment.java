@@ -30,6 +30,11 @@ public class RecyclerPokemonFragment extends Fragment {
 
         List<Pokemon> pokemonList;
 
+
+        public Pokemon getPokemon(int posicion){
+            return pokemonList.get(posicion);
+        }
+
         @NonNull
         @Override
         public PokemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -66,6 +71,7 @@ public class RecyclerPokemonFragment extends Fragment {
             super(binding.getRoot());
             this.binding = binding;
         }
+
     }
 
     @Override
