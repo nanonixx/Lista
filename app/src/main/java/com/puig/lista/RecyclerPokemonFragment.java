@@ -3,24 +3,28 @@ package com.puig.lista;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.puig.lista.databinding.FragmentRecyclerPokemonBinding;
 import com.puig.lista.databinding.ViewholderPokemonBinding;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RecyclerPokemonFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RecyclerPokemonFragment extends Fragment {
 
+
+    private FragmentRecyclerPokemonBinding binding;
+    private PokemonViewModel pokemonViewModel ;
+    private NavController navController;
 
     class PokemonAdapter extends RecyclerView.Adapter<PokemonViewHolder> {
 
@@ -38,12 +42,19 @@ public class RecyclerPokemonFragment extends Fragment {
             Pokemon pokemon = pokemonList.get(position);
 
             holder.binding.nombre.setText(pokemon.nombre);
+            holder.binding.tipos.setText(pokemon.tipos);
+            holder.binding.numpok.setText(pokemon.numpokedex);
 
         }
 
         @Override
         public int getItemCount() {
-            return 0;
+            return pokemonList != null ? pokemonList.size() : 0;
+        }
+
+        public void setPokemonList(List<Pokemon> pokemonList){
+            this.pokemonList = pokemonList;
+            notifyDataSetChanged();
         }
     }
 
@@ -57,45 +68,30 @@ public class RecyclerPokemonFragment extends Fragment {
         }
     }
 
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-
-
-    private String mParam1;
-    private String mParam2;
-
-    public RecyclerPokemonFragment() { }
-
-
-
-    public static RecyclerPokemonFragment newInstance(String param1, String param2) {
-        RecyclerPokemonFragment fragment = new RecyclerPokemonFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recycler_pokemon, container, false);
+
+        return (binding = FragmentRecyclerPokemonBinding.inflate(inflater, container, false)).getRoot();
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        pokemonViewModel = new ViewModelProvider(requireActivity()).get(PokemonViewModel.class);
+
+        PokemonAdapter pokemonAdapter = new PokemonAdapter();
+        binding.recyclerView.setAdapter(pokemonAdapter);
+
+        pokemonViewModel.getListPokemonMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Pokemon>>() {
+            @Override
+            public void onChanged(List<Pokemon> pokemonList) {
+                pokemonAdapter.setPokemonList(pokemonList);
+            }
+        });
 
 
+    }
 }

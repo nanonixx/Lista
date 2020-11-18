@@ -12,11 +12,11 @@ public class PokemonRep {
     }
 
     PokemonRep(){
-        pokemonList.add(new Pokemon("Bulbasaur", "Planta - Veneno", 1));
-        pokemonList.add(new Pokemon("Ivysaur", "Planta - Veneno", 2));
-        pokemonList.add(new Pokemon("Venusaur", "Planta - Veneno", 3));
-        pokemonList.add(new Pokemon("Charmander", "Fuego", 4));
-        pokemonList.add(new Pokemon("Charmeleon", "Fuego", 5));
+        pokemonList.add(new Pokemon("Bulbasaur", "Planta - Veneno", "1"));
+        pokemonList.add(new Pokemon("Ivysaur", "Planta - Veneno", "2"));
+        pokemonList.add(new Pokemon("Venusaur", "Planta - Veneno", "3"));
+        pokemonList.add(new Pokemon("Charmander", "Fuego", "4"));
+        pokemonList.add(new Pokemon("Charmeleon", "Fuego", "5"));
     }
 
     List<Pokemon> getPokemonList(){
