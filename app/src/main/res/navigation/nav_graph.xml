@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recyclerPokemonFragment">
+    <fragment
+        android:id="@+id/mostrarPokemonFragment"
+        android:name="com.puig.lista.mostrarPokemonFragment"
+        android:label="fragment_mostrar_pokemon2"
+        tools:layout="@layout/fragment_mostrar_pokemon2" />
+    <fragment
+        android:id="@+id/recyclerPokemonFragment"
+        android:name="com.puig.lista.RecyclerPokemonFragment"
+        android:label="fragment_recycler_pokemon"
+        tools:layout="@layout/fragment_recycler_pokemon" >
+        <action
+            android:id="@+id/action_recyclerPokemonFragment_to_mostrarPokemonFragment"
+            app:destination="@id/mostrarPokemonFragment" />
+    </fragment>
+</navigation>
