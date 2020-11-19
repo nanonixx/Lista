@@ -7,18 +7,17 @@
     >
 
 
-
     <TextView
         android:id="@+id/numpok"
-        android:layout_width="wrap_content"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:textSize="32sp"
         tools:text="e" />
 
     <TextView
         android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_width="235dp"
+        android:layout_height="match_parent"
         android:textSize="32sp"
         tools:text="a" />
 
@@ -26,8 +25,7 @@
     <TextView
         android:id="@+id/tipos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="116dp"
         android:textSize="32sp"
-        tools:text="i"
-        />
+        tools:text="i" />
 </LinearLayout>
