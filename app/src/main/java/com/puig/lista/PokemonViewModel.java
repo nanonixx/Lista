@@ -13,6 +13,17 @@ public class PokemonViewModel extends AndroidViewModel {
     PokemonRep pokemonRep;
 
     MutableLiveData<List<Pokemon>> listPokemonMutableLiveData = new MutableLiveData<>();
+    MutableLiveData<Pokemon> pokemonSeleccionado = new MutableLiveData<>();
+
+    void seleccionar (Pokemon pokemon){
+        pokemonSeleccionado.setValue(pokemon);
+    }
+
+    MutableLiveData <Pokemon> seleccionado(){
+        return pokemonSeleccionado;
+    }
+
+    MutableLiveData<List<Pokemon>> get() { return listPokemonMutableLiveData; }
 
     public PokemonViewModel(@NonNull Application application) {
         super(application);

@@ -2,24 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    >
 
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="32sp" />
+
 
     <TextView
         android:id="@+id/numpok"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        tools:text="e" />
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:textSize="32sp"
+        tools:text="a" />
+
 
     <TextView
         android:id="@+id/tipos"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp" />
-
+        android:textSize="32sp"
+        tools:text="i"
+        />
 </LinearLayout>

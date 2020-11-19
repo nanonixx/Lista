@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -50,6 +51,14 @@ public class RecyclerPokemonFragment extends Fragment {
             holder.binding.tipos.setText(pokemon.tipos);
             holder.binding.numpok.setText(pokemon.numpokedex);
 
+            holder.itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    pokemonViewModel.seleccionar(pokemon);
+                    navController.navigate(R.id.action_recyclerPokemonFragment_to_mostrarPokemonFragment);
+                }
+            });
+
         }
 
         @Override
@@ -87,6 +96,8 @@ public class RecyclerPokemonFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         pokemonViewModel = new ViewModelProvider(requireActivity()).get(PokemonViewModel.class);
+
+        navController = Navigation.findNavController(view);
 
         PokemonAdapter pokemonAdapter = new PokemonAdapter();
         binding.recyclerView.setAdapter(pokemonAdapter);

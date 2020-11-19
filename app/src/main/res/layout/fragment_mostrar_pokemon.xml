@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mostrarPokemonFragment">
+    tools:context=".mostrarPokemonFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/nombre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        tools:text="e"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tipos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        tools:text="aa" />
+
+    <TextView
+        android:id="@+id/numpok"
+        android:layout_width="match_parent"
+        android:layout_height="119dp"
+        android:textSize="48sp"
+        tools:text="u" />
+</LinearLayout>
